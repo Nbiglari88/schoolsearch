@@ -4,21 +4,23 @@ services:
     container_name: schools-datastore
     image: mongo:3.2
     command: mongod --smallfiles
+  rabbitmq:
+    container_name: schools-messaging
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
   web:
     container_name: schools-service
     build: target/docker
     image: schoolsearch-image
     depends_on: # schools-datastore will be started before the schoolsearch
       - mongodb
+      - rabbitmq
     ports:
       - "8080:8080"
     links:
       - mongodb
+      - rabbitmq
     environment:
       SPRING_DATA_MONGODB_URI: mongodb://mongodb/test
-
-  rabbitmq:
-    image: rabbitmq:management
-    ports:
-      - "5672:5672"
-      - "15672:15672"

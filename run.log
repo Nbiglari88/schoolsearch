@@ -1,0 +1,258 @@
+Step 1/7 : FROM frolvlad/alpine-oraclejdk8:slim
+ ---> 323fb90cf52c
+Step 2/7 : VOLUME /tmp
+ ---> Using cache
+ ---> 64d1be0fcbc5
+Step 3/7 : ADD schoolsearch-0.1.0.jar app.jar
+ ---> Using cache
+ ---> 0d1d9e88038e
+Step 4/7 : RUN sh -c 'touch /app.jar'
+ ---> Using cache
+ ---> 7f62211048c1
+Step 5/7 : ENV JAVA_OPTS ""
+ ---> Using cache
+ ---> 4c6728175e89
+Step 6/7 : EXPOSE 8080
+ ---> Using cache
+ ---> dfa017e59566
+Step 7/7 : ENTRYPOINT sh -c java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+ ---> Using cache
+ ---> c0bc94f4908d
+Successfully built c0bc94f4908d
+Successfully tagged schoolsearch-image:latest
+Attaching to schools-datastore, assignment1_rabbitmq_1, schools-service
+[36mschools-datastore |[0m 2017-07-03T13:16:57.913+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=4cf50b1cc3dd
+[36mschools-datastore |[0m 2017-07-03T13:16:57.913+0000 I CONTROL  [initandlisten] db version v3.2.14
+[36mschools-datastore |[0m 2017-07-03T13:16:57.913+0000 I CONTROL  [initandlisten] git version: 92f6668a768ebf294bd4f494c50f48459198e6a3
+[36mschools-datastore |[0m 2017-07-03T13:16:57.913+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1t  3 May 2016
+[36mschools-datastore |[0m 2017-07-03T13:16:57.913+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+[36mschools-datastore |[0m 2017-07-03T13:16:57.913+0000 I CONTROL  [initandlisten] modules: none
+[36mschools-datastore |[0m 2017-07-03T13:16:57.913+0000 I CONTROL  [initandlisten] build environment:
+[36mschools-datastore |[0m 2017-07-03T13:16:57.913+0000 I CONTROL  [initandlisten]     distmod: debian81
+[36mschools-datastore |[0m 2017-07-03T13:16:57.913+0000 I CONTROL  [initandlisten]     distarch: x86_64
+[36mschools-datastore |[0m 2017-07-03T13:16:57.913+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+[36mschools-datastore |[0m 2017-07-03T13:16:57.913+0000 I CONTROL  [initandlisten] options: { storage: { mmapv1: { smallFiles: true } } }
+[36mschools-datastore |[0m 2017-07-03T13:16:57.918+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+[36mschools-datastore |[0m 2017-07-03T13:16:57.918+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1G,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+[36mschools-datastore |[0m 2017-07-03T13:16:58.677+0000 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+[36mschools-datastore |[0m 2017-07-03T13:16:58.677+0000 I CONTROL  [initandlisten] 
+[36mschools-datastore |[0m 2017-07-03T13:16:58.677+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+[36mschools-datastore |[0m 2017-07-03T13:16:58.677+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+[36mschools-datastore |[0m 2017-07-03T13:16:58.677+0000 I CONTROL  [initandlisten] 
+[36mschools-datastore |[0m 2017-07-03T13:16:58.677+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+[36mschools-datastore |[0m 2017-07-03T13:16:58.678+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+[36mschools-datastore |[0m 2017-07-03T13:16:58.678+0000 I CONTROL  [initandlisten] 
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:01 ===
+[33mrabbitmq_1  |[0m Starting RabbitMQ 3.6.10 on Erlang 19.2.1
+[33mrabbitmq_1  |[0m Copyright (C) 2007-2017 Pivotal Software, Inc.
+[33mrabbitmq_1  |[0m Licensed under the MPL.  See http://www.rabbitmq.com/
+[32mschools-service |[0m 
+[32mschools-service |[0m   .   ____          _            __ _ _
+[32mschools-service |[0m  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+[32mschools-service |[0m ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+[32mschools-service |[0m  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+[32mschools-service |[0m   '  |____| .__|_| |_|_| |_\__, | / / / /
+[32mschools-service |[0m  =========|_|==============|___/=/_/_/_/
+[32mschools-service |[0m  :: Spring Boot ::        (v1.5.3.RELEASE)
+[32mschools-service |[0m 
+[32mschools-service |[0m 2017-07-03 13:17:02.895  INFO 5 --- [           main] app.Application                          : Starting Application v0.1.0 on 0d1f91b788ab with PID 5 (/app.jar started by root in /)
+[32mschools-service |[0m 2017-07-03 13:17:02.969  INFO 5 --- [           main] app.Application                          : No active profile set, falling back to default profiles: default
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m               RabbitMQ 3.6.10. Copyright (C) 2007-2017 Pivotal Software, Inc.
+[33mrabbitmq_1  |[0m   ##  ##      Licensed under the MPL.  See http://www.rabbitmq.com/
+[33mrabbitmq_1  |[0m   ##  ##
+[33mrabbitmq_1  |[0m   ##########  Logs: tty
+[33mrabbitmq_1  |[0m   ######  ##        tty
+[33mrabbitmq_1  |[0m   ##########
+[33mrabbitmq_1  |[0m               Starting broker...
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:01 ===
+[33mrabbitmq_1  |[0m node           : rabbit@872d8cd2ba75
+[33mrabbitmq_1  |[0m home dir       : /var/lib/rabbitmq
+[33mrabbitmq_1  |[0m config file(s) : /etc/rabbitmq/rabbitmq.config
+[33mrabbitmq_1  |[0m cookie hash    : i50oXObNc9+SnQawhnf6CA==
+[33mrabbitmq_1  |[0m log            : tty
+[33mrabbitmq_1  |[0m sasl log       : tty
+[33mrabbitmq_1  |[0m database dir   : /var/lib/rabbitmq/mnesia/rabbit@872d8cd2ba75
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m Memory limit set to 398MB of 995MB total.
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m Enabling free disk space monitoring
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m Disk free limit set to 50MB
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m Limiting to approx 1048476 file handles (943626 sockets)
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m FHC read buffering:  OFF
+[33mrabbitmq_1  |[0m FHC write buffering: ON
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m Waiting for Mnesia tables for 30000 ms, 9 retries left
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m Waiting for Mnesia tables for 30000 ms, 9 retries left
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m Priority queues enabled, real BQ is rabbit_variable_queue
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m Starting rabbit_node_monitor
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m Management plugin: using rates mode 'basic'
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m msg_store_transient: using rabbit_msg_store_ets_index to provide index
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m msg_store_persistent: using rabbit_msg_store_ets_index to provide index
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m started TCP Listener on [::]:5672
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m Management plugin started. Port: 15672
+[33mrabbitmq_1  |[0m 
+[33mrabbitmq_1  |[0m =INFO REPORT==== 3-Jul-2017::13:17:03 ===
+[33mrabbitmq_1  |[0m Statistics database started.
+[33mrabbitmq_1  |[0m  completed with 6 plugins.
+[32mschools-service |[0m 2017-07-03 13:17:03.437  INFO 5 --- [           main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@626b2d4a: startup date [Mon Jul 03 13:17:03 GMT 2017]; root of context hierarchy
+[32mschools-service |[0m 2017-07-03 13:17:06.705  INFO 5 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$3242a869] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[32mschools-service |[0m 2017-07-03 13:17:07.450  INFO 5 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+[32mschools-service |[0m 2017-07-03 13:17:07.481  INFO 5 --- [           main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+[32mschools-service |[0m 2017-07-03 13:17:07.485  INFO 5 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.14
+[32mschools-service |[0m 2017-07-03 13:17:07.698  INFO 5 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+[32mschools-service |[0m 2017-07-03 13:17:07.699  INFO 5 --- [ost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4291 ms
+[32mschools-service |[0m 2017-07-03 13:17:08.106  INFO 5 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+[32mschools-service |[0m 2017-07-03 13:17:08.113  INFO 5 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+[32mschools-service |[0m 2017-07-03 13:17:08.121  INFO 5 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[32mschools-service |[0m 2017-07-03 13:17:08.121  INFO 5 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[32mschools-service |[0m 2017-07-03 13:17:08.121  INFO 5 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+[32mschools-service |[0m 2017-07-03 13:17:08.208  WARN 5 --- [           main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: public static final java.lang.String app.Application.queueName
+[36mschools-datastore |[0m 2017-07-03T13:16:58.680+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+[36mschools-datastore |[0m 2017-07-03T13:16:58.680+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+[36mschools-datastore |[0m 2017-07-03T13:16:58.680+0000 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+[32mschools-service |[0m 2017-07-03 13:17:08.980  INFO 5 --- [           main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[mongodb:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+[32mschools-service |[0m 2017-07-03 13:17:09.191  INFO 5 --- [}-mongodb:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to mongodb:27017
+[32mschools-service |[0m 2017-07-03 13:17:09.198  INFO 5 --- [}-mongodb:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=mongodb:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 2, 14]}, minWireVersion=0, maxWireVersion=4, maxDocumentSize=16777216, roundTripTimeNanos=1024111}
+[32mschools-service |[0m 2017-07-03 13:17:10.620  INFO 5 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@626b2d4a: startup date [Mon Jul 03 13:17:03 GMT 2017]; root of context hierarchy
+[32mschools-service |[0m 2017-07-03 13:17:10.821  INFO 5 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.String app.Application.home()
+[32mschools-service |[0m 2017-07-03 13:17:10.825  INFO 5 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/school]}" onto public app.School app.SchoolController.school(java.lang.String)
+[32mschools-service |[0m 2017-07-03 13:17:10.832  INFO 5 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[32mschools-service |[0m 2017-07-03 13:17:10.838  INFO 5 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[32mschools-service |[0m 2017-07-03 13:17:10.911  INFO 5 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[32mschools-service |[0m 2017-07-03 13:17:10.912  INFO 5 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[32mschools-service |[0m 2017-07-03 13:17:11.013  INFO 5 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[32mschools-service |[0m 2017-07-03 13:17:11.486  INFO 5 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+[32mschools-service |[0m 2017-07-03 13:17:11.512  INFO 5 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+[32mschools-service |[0m 2017-07-03 13:17:11.518  INFO 5 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+[32mschools-service |[0m 2017-07-03 13:17:11.560  INFO 5 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase -2147482648
+[32mschools-service |[0m 2017-07-03 13:17:11.567  INFO 5 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+[32mschools-service |[0m 2017-07-03 13:17:11.594 ERROR 5 --- [    container-1] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+[32mschools-service |[0m 
+[32mschools-service |[0m org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused (Connection refused)
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:62) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:367) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:565) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:1430) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:1411) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:1387) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueProperties(RabbitAdmin.java:336) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.redeclareElementsIfNecessary(SimpleMessageListenerContainer.java:1136) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1387) [spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_131]
+[32mschools-service |[0m Caused by: java.net.ConnectException: Connection refused (Connection refused)
+[32mschools-service |[0m 	at java.net.PlainSocketImpl.socketConnect(Native Method) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:50) ~[amqp-client-4.0.2.jar!/:4.0.2]
+[32mschools-service |[0m 	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:907) ~[amqp-client-4.0.2.jar!/:4.0.2]
+[32mschools-service |[0m 	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:859) ~[amqp-client-4.0.2.jar!/:4.0.2]
+[32mschools-service |[0m 	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:799) ~[amqp-client-4.0.2.jar!/:4.0.2]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:351) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	... 8 common frames omitted
+[32mschools-service |[0m 
+[36mschools-datastore |[0m 2017-07-03T13:17:09.103+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.4:55858 #1 (1 connection now open)
+[32mschools-service |[0m 2017-07-03 13:17:11.722  INFO 5 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+[32mschools-service |[0m 2017-07-03 13:17:11.831  INFO 5 --- [           main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to mongodb:27017
+[32mschools-service |[0m Schools found with findAll(): 
+[32mschools-service |[0m -------------------------------
+[32mschools-service |[0m School[id=595a43d72ab79c0005c419ad, city=Utrecht, name=Dalton School]
+[32mschools-service |[0m School[id=595a43d72ab79c0005c419ae, city=Rotterdam, name=Montessori School]
+[32mschools-service |[0m School[id=595a43d72ab79c0005c419af, city=Den Haag, name=Katholieke School]
+[32mschools-service |[0m 
+[32mschools-service |[0m School found with findByCity('Utrecht'):
+[32mschools-service |[0m --------------------------------
+[32mschools-service |[0m School[id=595a43d72ab79c0005c419ad, city=Utrecht, name=Dalton School]
+[32mschools-service |[0m Customers found with findName('Montessori School'):
+[32mschools-service |[0m --------------------------------
+[32mschools-service |[0m School[id=595a43d72ab79c0005c419ae, city=Rotterdam, name=Montessori School]
+[32mschools-service |[0m Sending message...
+[32mschools-service |[0m 2017-07-03 13:17:12.063  INFO 5 --- [           main] utoConfigurationReportLoggingInitializer : 
+[32mschools-service |[0m 
+[32mschools-service |[0m Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+[32mschools-service |[0m 2017-07-03 13:17:12.080 ERROR 5 --- [           main] o.s.boot.SpringApplication               : Application startup failed
+[32mschools-service |[0m 
+[32mschools-service |[0m java.lang.IllegalStateException: Failed to execute CommandLineRunner
+[32mschools-service |[0m 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:779) [spring-boot-1.5.3.RELEASE.jar!/:1.5.3.RELEASE]
+[32mschools-service |[0m 	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:760) [spring-boot-1.5.3.RELEASE.jar!/:1.5.3.RELEASE]
+[32mschools-service |[0m 	at org.springframework.boot.SpringApplication.afterRefresh(SpringApplication.java:747) [spring-boot-1.5.3.RELEASE.jar!/:1.5.3.RELEASE]
+[32mschools-service |[0m 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-1.5.3.RELEASE.jar!/:1.5.3.RELEASE]
+[32mschools-service |[0m 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162) [spring-boot-1.5.3.RELEASE.jar!/:1.5.3.RELEASE]
+[32mschools-service |[0m 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151) [spring-boot-1.5.3.RELEASE.jar!/:1.5.3.RELEASE]
+[32mschools-service |[0m 	at app.Application.main(Application.java:68) [classes!/:0.1.0]
+[32mschools-service |[0m 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [app.jar:0.1.0]
+[32mschools-service |[0m 	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [app.jar:0.1.0]
+[32mschools-service |[0m 	at org.springframework.boot.loader.Launcher.launch(Launcher.java:50) [app.jar:0.1.0]
+[32mschools-service |[0m 	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:51) [app.jar:0.1.0]
+[32mschools-service |[0m Caused by: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused (Connection refused)
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:62) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:367) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:565) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:1430) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:1411) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.core.RabbitTemplate.send(RabbitTemplate.java:712) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:780) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:767) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	at app.rabbitMQ.Runner.run(Runner.java:28) ~[classes!/:0.1.0]
+[32mschools-service |[0m 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:776) [spring-boot-1.5.3.RELEASE.jar!/:1.5.3.RELEASE]
+[32mschools-service |[0m 	... 14 common frames omitted
+[32mschools-service |[0m Caused by: java.net.ConnectException: Connection refused (Connection refused)
+[32mschools-service |[0m 	at java.net.PlainSocketImpl.socketConnect(Native Method) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_131]
+[32mschools-service |[0m 	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:50) ~[amqp-client-4.0.2.jar!/:4.0.2]
+[32mschools-service |[0m 	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:907) ~[amqp-client-4.0.2.jar!/:4.0.2]
+[32mschools-service |[0m 	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:859) ~[amqp-client-4.0.2.jar!/:4.0.2]
+[32mschools-service |[0m 	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:799) ~[amqp-client-4.0.2.jar!/:4.0.2]
+[32mschools-service |[0m 	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:351) ~[spring-rabbit-1.7.2.RELEASE.jar!/:na]
+[32mschools-service |[0m 	... 22 common frames omitted
+[32mschools-service |[0m 
+[32mschools-service |[0m 2017-07-03 13:17:12.083  INFO 5 --- [           main] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@626b2d4a: startup date [Mon Jul 03 13:17:03 GMT 2017]; root of context hierarchy
+[32mschools-service |[0m 2017-07-03 13:17:12.091  INFO 5 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+[32mschools-service |[0m 2017-07-03 13:17:12.097  INFO 5 --- [           main] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+[32mschools-service |[0m 2017-07-03 13:17:12.099  INFO 5 --- [           main] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+[32mschools-service |[0m 2017-07-03 13:17:12.106  INFO 5 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase -2147482648
+[32mschools-service |[0m 2017-07-03 13:17:12.107  INFO 5 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+[32mschools-service |[0m 2017-07-03 13:17:12.107  INFO 5 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+[36mschools-datastore |[0m 2017-07-03T13:17:11.824+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.4:55864 #2 (2 connections now open)
+[36mschools-datastore |[0m 2017-07-03T13:17:12.121+0000 I NETWORK  [conn2] end connection 172.18.0.4:55864 (1 connection now open)
+[32mschools-service |[0m 2017-07-03 13:17:12.114  INFO 5 --- [           main] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:2}] to mongodb:27017 because the pool has been closed.
+[32mschools-service exited with code 1
+[0mGracefully stopping... (press Ctrl+C again to force)
