@@ -20,7 +20,6 @@ public class SchoolControllerTest {
     @Mock
     SchoolRepository schoolRepositoryMock;
 
-
     School schoolStub = new School("","testSchool");
 
     @Test
@@ -28,7 +27,6 @@ public class SchoolControllerTest {
         when(schoolRepositoryMock.findByCity("")).thenReturn(schoolStub);
 
         School school1 = SchoolControllerFixture.school("");
-        System.out.println(school1);
 
         verify(schoolRepositoryMock).findByCity("");
         assertEquals(school1.name,"testSchool");
