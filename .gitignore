@@ -16,4 +16,9 @@ Guardfile
 README.html
 *.iml
 .idea
-.idea/workspace.xml
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+
+# IntelliJ
+/out/
