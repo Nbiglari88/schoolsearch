@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: schoolsearch
+
+ribbon:
+  ServerListRefreshInterval: 1000
+
+endpoints:
+  health:
+    sensitive: false
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+
+  storage:
+    dbPath: "/data/db"
+    directoryPerDB: true
+    journal:
+    enabled: true
+
+  systemLog:
+    destination: file
+    path: "/data/log/mongodb.log"
+    logAppend: true
+    timeStampFormat: iso8601-utc
+  processManagement:
+    fork: true
+  net:
+    bindIp: 127.0.0.1
+    port: 27017
+
+  # enable H2 web console and set url for web console
+  # http://localhost:8080/console
+  h2:
+    console:
+    enabled: true
+    path: /console
+
