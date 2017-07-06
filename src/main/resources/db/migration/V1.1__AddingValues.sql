@@ -1,10 +1,10 @@
-INSERT INTO school(id,name,city)
+INSERT INTO schools(id,name,city)
 VALUES
 (1,'Christelijk College De Populier', 'Den Haag'),
 (2,'Rudolf Steiner College Rotterdam', 'Rotterdam'),
 (3,'Instituut Blankestijn', 'Utrecht'),
 (4,'Visser t Hooft Lyceum', 'Leiden'),
-(5,'Calandlyceum', 'Amstedam');
+(5,'Calandlyceum', 'Amsterdam');
 
 INSERT INTO students(id,name,birth_date)
 VALUES
@@ -42,17 +42,3 @@ VALUES
 (13,5,13),
 (14,5,14),
 (15,5,15);
-
-
---DECLARE
---  c int := 0;
---
---BEGIN
---FOR i IN 1..5 LOOP
---    FOR j in 1..3 LOOP
---        c := c+1;
---        INSERT INTO ss_link(id, id_school,id_student) VALUES(c,i,i*j);
---    END LOOP;
---END LOOP;
---END
---$$ LANGUAGE plpgsql;
