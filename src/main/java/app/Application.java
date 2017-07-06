@@ -11,6 +11,10 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
 import com.mongodb.DB;
 
+import org.flywaydb.core.Flyway;
+import org.flywaydb.core.api.android.ContextHolder;
+import org.sqldroid.DroidDataSource;
+
 
 
 @SpringBootApplication
@@ -33,6 +37,12 @@ public class Application implements CommandLineRunner {
 
 	@Override
 	public void run(String[] args) throws Exception {
+
+		DroidDataSource dataSource = new DroidDataSource(getPackageName(), "...");
+		ContextHolder.setContext(this);
+		Flyway flyway = new Flyway();
+		flyway.setDataSource(dataSource);
+		flyway.migrate();
 
 		repository.deleteAll();
 

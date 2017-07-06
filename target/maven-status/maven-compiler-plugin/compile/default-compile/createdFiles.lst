@@ -1,4 +1,4 @@
 app\SchoolController.class
+app\SchoolRepository.class
 app\School.class
 app\Application.class
-app\SchoolRepository.class
