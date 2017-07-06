@@ -30,3 +30,7 @@ endpoints:
         bindIp: 127.0.0.1
         port: 27017
 
+  flyway:
+      check-location: false
+      validate-on-migrate: false
+      locations: classpath:db/migration

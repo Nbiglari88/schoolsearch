@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS schools;
 DROP TABLE IF EXISTS students;
-DROP TABLE IF EXISTS ss_link
+DROP TABLE IF EXISTS ss_link;
 
 
 
