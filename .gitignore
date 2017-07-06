@@ -13,7 +13,6 @@ dependency-reduced-pom.xml
 /scratch
 .gradle
 Guardfile
-README.html
 *.iml
 .idea
 .idea/workspace.xml

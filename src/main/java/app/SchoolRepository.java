@@ -1,9 +1,9 @@
 package app;
 
 import java.util.List;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface SchoolRepository extends MongoRepository<School, String> {
+public interface SchoolRepository extends PagingAndSortingRepository<School, String> {
     public School findByCity(String City);
     public List<School> findByName(String Name);
 }

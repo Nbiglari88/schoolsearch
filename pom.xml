@@ -51,8 +51,9 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>4.2.0</version>
                 <configuration>
-                    <url>jdbc:h2:file:./target/foobar</url>
-                    <user>sa</user>
+                    <url>jdbc:postgresql://localhost:5432/schoolsearch</url>
+                    <user>NBIGLARI</user>
+                    <password>-kots578-</password>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -76,10 +77,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>1.5.2.RELEASE</version>
         </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/net.sourceforge.cobertura/cobertura -->
         <dependency>
@@ -87,6 +91,12 @@
             <artifactId>cobertura</artifactId>
             <version>2.1.1</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4-1206-jdbc42</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
@@ -101,6 +111,7 @@
             <artifactId>flyway-core</artifactId>
             <version>4.2.0</version>
         </dependency>
+
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
