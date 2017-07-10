@@ -2,31 +2,31 @@ spring:
   application:
     name: schoolsearch
 
-ribbon:
-  ServerListRefreshInterval: 1000
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/schoolsearch
+    username: NBIGLARI
+    password: -kots578-
+    spring.jpa.hibernate.ddl-auto: create-drop
+    driverClassName: org.postgresql.Driver
 
-endpoints:
-  health:
-    sensitive: false
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
+  ribbon:
+    ServerListRefreshInterval: 1000
 
-  storage:
-        dbPath: "/data/db"
-        directoryPerDB: true
-        journal:
-        enabled: true
+  endpoints:
+    health:
+      sensitive: false
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
 
-  systemLog:
-        destination: file
-        path: "/data/log/mongodb.log"
-        logAppend: true
-        timeStampFormat: iso8601-utc
   processManagement:
         fork: true
   net:
         bindIp: 127.0.0.1
-        port: 27017
-
+        port: 5432
+  flyway:
+      check-location: false
+      validate-on-migrate: false
+      locations: classpath:db/migration
