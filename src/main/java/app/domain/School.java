@@ -1,4 +1,4 @@
-package app;
+package app.domain;
 
 //import org.springframework.data.annotation.Id;
 

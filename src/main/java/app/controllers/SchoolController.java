@@ -1,35 +1,40 @@
-package app;
+package app.controllers;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+import app.configuration.DatabaseConf;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
 
 @RestController
 public class SchoolController {
-//
-//    @Autowired
-//    private SchoolRepository repository;
 
     private DatabaseConf databaseConf;
 
+
     @RequestMapping("/school")
-    public String school() throws Exception{
+    public ArrayList school() throws SQLException {
 
         Statement stmt = null;
         Connection c = databaseConf.getConnection();
+        ArrayList schoollist = new ArrayList(100);
+
         try {
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM SCHOOLS;");
+
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String city = rs.getString("city");
                 String name = rs.getString("name");
+
+                schoollist.add("ID:"+ id+" City: "+city+ " School name: "+name);
 
                 System.out.println("ID = " + id);
                 System.out.println("City = " + city);
@@ -42,7 +47,7 @@ public class SchoolController {
                 System.exit(0);
             }
 
-        return "Check your commandline";
+        return schoollist;
         }
 
 
