@@ -16,3 +16,4 @@ Guardfile
 *.iml
 .idea
 .idea/workspace.xml
+data
