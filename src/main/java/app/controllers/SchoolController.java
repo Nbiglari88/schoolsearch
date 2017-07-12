@@ -15,15 +15,15 @@ import java.util.ArrayList;
 @RestController
 public class SchoolController {
 
-    private DatabaseConf databaseConf;
-
+    private DatabaseConf databaseConf = new DatabaseConf();
+    private ArrayList schoolList = new ArrayList(100);
 
     @RequestMapping("/school")
     public ArrayList school() throws SQLException {
 
         Statement stmt = null;
         Connection c = databaseConf.getConnection();
-        ArrayList schoollist = new ArrayList(100);
+
 
         try {
             stmt = c.createStatement();
@@ -34,7 +34,7 @@ public class SchoolController {
                 String city = rs.getString("city");
                 String name = rs.getString("name");
 
-                schoollist.add("ID:"+ id+" City: "+city+ " School name: "+name);
+                schoolList.add("ID:"+ id+" City: "+city+ " School name: "+name);
 
                 System.out.println("ID = " + id);
                 System.out.println("City = " + city);
@@ -46,8 +46,8 @@ public class SchoolController {
                 System.err.println(e.getClass().getName()+": "+e.getMessage());
                 System.exit(0);
             }
-
-        return schoollist;
+        System.out.println(schoolList);
+        return schoolList;
         }
 
 

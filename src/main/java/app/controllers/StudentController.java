@@ -15,14 +15,14 @@ import java.util.ArrayList;
 @RestController
 public class StudentController {
 
-    private DatabaseConf databaseConf;
-
+    private DatabaseConf databaseConf = new DatabaseConf();
+    ArrayList studentlist = new ArrayList(100);
     @RequestMapping("/student")
     public ArrayList student() throws SQLException {
 
         Statement stmt = null;
         Connection c = databaseConf.getConnection();
-        ArrayList studentlist = new ArrayList(100);
+
 
         try {
             stmt = c.createStatement();
